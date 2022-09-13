@@ -69,24 +69,6 @@ usage() {
 	exit
 }
 #------------------------------------------------------------------------------------------------------------
-check_input_options () {
-
-	# create available options list
-	InputOptionList=$(cat $ScriptName | sed -n '/usage()/,/exit/p' | grep " -[[:alpha:]]" | awk '{print $3}' | grep "^\-")
-
-	# check for valid input options
-	for Option in $@ ; do	
-		if [[ -z $(grep -w -- "$Option" <<< "$InputOptionList") ]]; then
-			InvalidOptionList=$(echo $InvalidOptionList $Option)
-		fi
-	done
-
-	# print invalid options and exit script_information
-	if [[ -n $InvalidOptionList ]]; then
-		usage "invalid option: $InvalidOptionList"
-	fi
-}
-#------------------------------------------------------------------------------------------------------------
 script_information () {
 	printf "\n"
 	printf " Scriptname: $ScriptName\n"
