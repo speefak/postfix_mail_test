@@ -13,9 +13,9 @@
 ############################################################################################################
 #------------------------------------------------------------------------------------------------------------
 
- DefaultMailAddress="log-info@gmx.net"
+ DefaultMailAddress="foo@bar.com"
  SystemUsers="$USER root fail2ban www-data"
- PostfixLogFile="/var/log/mail.log" #daemon.log"
+ PostfixLogFile="/var/log/mail.log"
 
  RequiredPackets="bash sed awk mail "
  Date=$(date "+%F %H:%M:%S")
